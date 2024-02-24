@@ -20,10 +20,10 @@
         base_layer {
             label = "Base";
             bindings = <
-&kp TAB                  &kp Q             &kp W         &kp F         &kp P  &kp B                 &kp J      &kp L  &kp U          &kp Y     &kp SEMI           &kp BACKSPACE
+&kp DELETE               &kp Q             &kp W         &kp F         &kp P  &kp B                 &kp J      &kp L  &kp U          &kp Y     &kp SEMI           &kp BACKSPACE
 &mt LEFT_CONTROL ESCAPE  &kp A             &kp R         &kp S         &kp T  &kp G                 &kp M      &kp N  &kp E          &kp I     &kp O              &kp SINGLE_QUOTE
-&kp LEFT_BRACKET         &kp Z             &kp X         &kp C         &kp D  &kp V                 &kp K      &kp H  &kp COMMA      &kp DOT   &kp SLASH          &kp RIGHT_BRACKET
-&mo 3                    &kp LEFT_CONTROL  &kp LEFT_ALT  &kp LEFT_GUI  &mo 1  &mt LEFT_SHIFT ENTER  &kp SPACE  &mo 2  &kp RIGHT_GUI  &kp RALT  &kp RIGHT_CONTROL  &mo 4
+&kp DELETE               &kp X             &kp C         &kp D         &kp V  &kp Z                 &kp K      &kp H  &kp COMMA      &kp DOT   &kp SLASH          &kp ENTER
+&mo 3                    &kp LEFT_CONTROL  &kp LEFT_ALT  &kp LEFT_GUI  &mo 1  &kp LEFT_SHIFT        &kp SPACE  &mo 2  &kp RIGHT_GUI  &kp RALT  &kp RIGHT_CONTROL  &mo 4
             >;
         };
 
@@ -31,8 +31,8 @@
             label = "Num";
             bindings = <
 &trans     &kp EXCLAMATION  &kp AT     &kp HASH       &kp DOLLAR      &kp PERCENT           &kp CARET              &kp N1  &kp N2  &kp N3  &kp EQUAL     &trans
-&kp GRAVE  &kp PERCENT      &kp CARET  &kp AMPERSAND  &kp UNDERSCORE  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp N4  &kp N5  &kp N6  &kp PLUS      &kp MINUS
-&kp TILDE  &kp GRAVE        &kp TILDE  &kp LS(PIPE)   &kp BSLH        &trans                &trans                 &kp N7  &kp N8  &kp N9  &kp ASTERISK  &kp FSLH
+&kp GRAVE  &kp PERCENT      &kp CARET  &kp AMPERSAND  &kp UNDERSCORE  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp N4  &kp N5  &kp N6  &kp ASTERISK      &kp FSLH
+&kp TILDE  &kp GRAVE        &kp TILDE  &kp PIPE       &kp BSLH        &trans                &trans                 &kp N7  &kp N8  &kp N9  &kp ASTERISK  &kp FSLH
 &trans     &trans           &trans     &trans         &trans          &trans                &trans                 &kp N0  &trans  &trans  &trans        &trans
             >;
         };
