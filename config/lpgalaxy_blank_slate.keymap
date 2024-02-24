@@ -22,7 +22,7 @@
             bindings = <
 &kp DELETE               &kp Q             &kp W         &kp F         &kp P  &kp B                 &kp J      &kp L  &kp U          &kp Y     &kp SEMI           &kp BACKSPACE
 &mt LEFT_CONTROL ESCAPE  &kp A             &kp R         &kp S         &kp T  &kp G                 &kp M      &kp N  &kp E          &kp I     &kp O              &kp SINGLE_QUOTE
-&kp DELETE               &kp X             &kp C         &kp D         &kp V  &kp Z                 &kp K      &kp H  &kp COMMA      &kp DOT   &kp SLASH          &kp ENTER
+&kp TAB               &kp X             &kp C         &kp D         &kp V  &kp Z                 &kp K      &kp H  &kp COMMA      &kp DOT   &kp SLASH          &kp ENTER
 &mo 3                    &kp LEFT_CONTROL  &kp LEFT_ALT  &kp LEFT_GUI  &mo 1  &kp LEFT_SHIFT        &kp SPACE  &mo 2  &kp RIGHT_GUI  &kp RALT  &kp RIGHT_CONTROL  &mo 4
             >;
         };
