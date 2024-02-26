@@ -54,7 +54,7 @@
             label = "Num";
             bindings = <
 &trans     &kp EXCLAMATION  &kp AT     &kp HASH       &kp DOLLAR      &kp LBKT              &kp RBKT  &kp N1  &kp N2  &kp N3  &kp EQUAL     &trans
-&kp GRAVE  &kp PERCENT      &kp CARET  &kp AMPERSAND  &kp UNDERSCORE  &kp LEFT_PARENTHESIS  &kp RPAR  &kp N4  &kp N5  &kp N6  &kp ASTERISK  &kp FSLH
+&kp TILDE  &kp PERCENT      &kp CARET  &kp AMPERSAND  &kp UNDERSCORE  &kp LEFT_PARENTHESIS  &kp RPAR  &kp N4  &kp N5  &kp N6  &kp ASTERISK  &kp FSLH
 &kp TILDE  &kp GRAVE        &kp TILDE  &kp PIPE       &kp BSLH        &kp LBRC              &kp RBRC  &kp N7  &kp N8  &kp N9  &kp MINUS     &kp PLUS
 &trans     &trans           &trans     &trans         &trans          &trans                &trans    &kp N0  &trans  &trans  &trans        &trans
             >;
