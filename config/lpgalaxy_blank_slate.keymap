@@ -11,8 +11,6 @@
 #define NUM_L 2
 #define SYM_L 3
 
-// Using layer taps on thumbs, having quick tap as well helps w/ repeating space/backspace
-
 / {
     macros {
         i_email: i_email {
@@ -36,6 +34,10 @@
             label = "WORK_EMAIL";
         };
     };
+
+    // TODO: Shift + Backspace for Delete (mod-morph)
+    // TODO: Right mods to Meh / Hyper
+    // TODO: sticky layers for corner layer keys
 
     keymap {
         compatible = "zmk,keymap";
