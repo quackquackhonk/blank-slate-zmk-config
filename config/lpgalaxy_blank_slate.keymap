@@ -46,7 +46,7 @@
 &kp DELETE      &kp Q       &kp W     &kp F     &kp P  &kp B        &kp J      &kp L  &kp U         &kp Y     &kp SEMI   &kp BACKSPACE
 &mt LCTRL ESC   &kp A       &kp R     &kp S     &kp T  &kp G        &kp M      &kp N  &kp E         &kp I     &kp O      &kp SINGLE_QUOTE
 &kp TAB         &kp X       &kp C     &kp D     &kp V  &kp Z        &kp K      &kp H  &kp COMMA     &kp DOT   &kp SLASH  &kp ENTER
-&mo 3           &kp LCTRL   &kp LATL  &kp LGUI  &mo 1  &kp LSFT     &kp SPACE  &mo 2  &kp RGUI      &kp RALT  &kp RCTRL  &mo 4
+&mo 3           &kp LCTRL   &kp LATL  &kp LGUI  &mo 1  &kp LSHFT    &kp SPACE  &mo 2  &kp RGUI      &kp RALT  &kp RCTRL  &mo 4
             >;
         };
 
