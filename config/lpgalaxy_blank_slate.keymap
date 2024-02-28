@@ -38,6 +38,7 @@
     // TODO: Shift + Backspace for Delete (mod-morph)
     // TODO: Right mods to Meh / Hyper
     // TODO: sticky layers for corner layer keys
+    // TODO: Repeat key somewhere on base layer
 
     keymap {
         compatible = "zmk,keymap";
