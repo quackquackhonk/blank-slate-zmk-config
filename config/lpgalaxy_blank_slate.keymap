@@ -53,8 +53,8 @@
             #binding-cells = <0>;
             bindings = <&kp BACKSPACE>, <&kp DELETE>;
             mods = <(MOD_LSFT)>;
-        }
-    }
+        };
+    };
 
     keymap {
         compatible = "zmk,keymap";
