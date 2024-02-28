@@ -48,8 +48,8 @@
 
     // Shift + Backspace for Delete (mod-morph)
     behaviors {
-        bksp_del: shift_backspace_delete {
-            compatible = "zmk, behavior-mod-morph";
+        bksp_del: bksp_del {
+            compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&kp BACKSPACE>, <&kp DELETE>;
             mods = <(MOD_LSFT)>;
