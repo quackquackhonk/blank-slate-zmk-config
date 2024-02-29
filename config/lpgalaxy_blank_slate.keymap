@@ -59,6 +59,9 @@
         };
     };
 
+    // TODO: Add CAPS_WORD functionality for long idents
+    // TODO: Maybe something that temporarily swaps space with _?
+
     keymap {
         compatible = "zmk,keymap";
 
