@@ -61,6 +61,7 @@
 
     // TODO: Add CAPS_WORD functionality for long idents
     // TODO: Maybe something that temporarily swaps space with _?
+    // TODO: layer tap with [ and ] for thumb layers
 
     keymap {
         compatible = "zmk,keymap";
