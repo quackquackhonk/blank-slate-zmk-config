@@ -67,12 +67,6 @@
             bindings = <&kp SPACE>, <&kp UNDERSCORE>;
             mods = <(MOD_LSFT)>;
         };
-        shift: shift_with_tap_dance_lock {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            tapping-term-ms = <100>;
-            bindings = <&kp LSHFT>, <&kt LSHFT>;
-        };
     };
 
     keymap {
@@ -81,10 +75,10 @@
         base_layer {
             label = "Base";
             bindings = <
-&key_repeat     &kp Q       &kp W     &kp F     &kp P       &kp B   &kp J      &kp L       &kp U     &kp Y     &kp SEMI   &bksp_del
-&mt LCTRL ESC   &kp A       &kp R     &kp S     &kp T       &kp G   &kp M      &kp N       &kp E     &kp I     &kp O      &kp SINGLE_QUOTE
-&kp TAB         &kp X       &kp C     &kp D     &kp V       &kp Z   &kp K      &kp H       &kp COMMA &kp DOT   &kp SLASH  &kp ENTER
-&sl 3           &kp LCTRL   &kp LALT  &kp LGUI  &lt 1 LBKT  &shift  &kp SPACE  &lt 2 RBKT  &kp MEH   &kp HYPER &kp RCTRL  &sl 4
+&key_repeat     &kp Q       &kp W     &kp F     &kp P       &kp B       &kp J      &kp L       &kp U     &kp Y     &kp SEMI   &bksp_del
+&mt LCTRL ESC   &kp A       &kp R     &kp S     &kp T       &kp G       &kp M      &kp N       &kp E     &kp I     &kp O      &kp SINGLE_QUOTE
+&kp TAB         &kp X       &kp C     &kp D     &kp V       &kp Z       &kp K      &kp H       &kp COMMA &kp DOT   &kp SLASH  &kp ENTER
+&sl 3           &kp LCTRL   &kp LALT  &kp LGUI  &lt 1 LBKT  &kp LSHFT   &sp_und    &lt 2 RBKT  &kp MEH   &kp HYPER &kp RCTRL  &sl 4
             >;
         };
 
