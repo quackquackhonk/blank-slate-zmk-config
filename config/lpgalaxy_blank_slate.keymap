@@ -61,7 +61,7 @@
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             bindings = <&kp LSHFT>, <&caps_word>;
-        }
+        };
     };
 
     keymap {
