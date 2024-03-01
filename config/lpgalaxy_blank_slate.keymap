@@ -53,7 +53,6 @@
             label = "WORK_EMAIL";
         };
     };
-
     // Shift + Backspace for Delete (mod-morph)
     behaviors {
         bksp_del: bksp_del {
@@ -62,10 +61,17 @@
             bindings = <&kp BACKSPACE>, <&kp DELETE>;
             mods = <(MOD_LSFT)>;
         };
-        caps_shft: caps_shft {
+        sp_und: space_underscore {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp SPACE>, <&kp UNDERSCORE>;
+            mods = <(MOD_LSFT)>;
+        };
+        shift: shift_with_tap_dance_lock {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
-            bindings = <&kp LSHFT>, <&caps_word>;
+            tapping-term-ms = <100>;
+            bindings = <&kp LSHFT>, <&kt LSHFT>;
         };
     };
 
@@ -75,22 +81,12 @@
         base_layer {
             label = "Base";
             bindings = <
-&key_repeat     &kp Q       &kp W     &kp F     &kp P       &kp B        &kp J      &kp L       &kp U     &kp Y     &kp SEMI   &bksp_del
-&mt LCTRL ESC   &kp A       &kp R     &kp S     &kp T       &kp G        &kp M      &kp N       &kp E     &kp I     &kp O      &kp SINGLE_QUOTE
-&kp TAB         &kp X       &kp C     &kp D     &kp V       &kp Z        &kp K      &kp H       &kp COMMA &kp DOT   &kp SLASH  &kp ENTER
-&sl 3           &kp LCTRL   &kp LALT  &kp LGUI  &lt 1 LBKT  &caps_shft   &kp SPACE  &lt 2 RBKT  &kp MEH   &kp HYPER &kp RCTRL  &sl 4
+&key_repeat     &kp Q       &kp W     &kp F     &kp P       &kp B   &kp J      &kp L       &kp U     &kp Y     &kp SEMI   &bksp_del
+&mt LCTRL ESC   &kp A       &kp R     &kp S     &kp T       &kp G   &kp M      &kp N       &kp E     &kp I     &kp O      &kp SINGLE_QUOTE
+&kp TAB         &kp X       &kp C     &kp D     &kp V       &kp Z   &kp K      &kp H       &kp COMMA &kp DOT   &kp SLASH  &kp ENTER
+&sl 3           &kp LCTRL   &kp LALT  &kp LGUI  &lt 1 LBKT  &shift  &kp SPACE  &lt 2 RBKT  &kp MEH   &kp HYPER &kp RCTRL  &sl 4
             >;
         };
-//
-//         caps_word {
-//             label = "Caps word custom layer";
-//             bindings = <
-// &key_repeat     &kp Q       &kp W     &kp F     &kp P       &kp B        &kp J      &kp L       &kp U     &kp Y     &kp SEMI   &bksp_del
-// &mt LCTRL ESC   &kp A       &kp R     &kp S     &kp T       &kp G        &kp M      &kp N       &kp E     &kp I     &kp O      &kp SINGLE_QUOTE
-// &kp TAB         &kp X       &kp C     &kp D     &kp V       &kp Z        &kp K      &kp H       &kp COMMA &kp DOT   &kp SLASH  &kp ENTER
-// &sl 3           &kp LCTRL   &kp LALT  &kp LGUI  &lt 1 LBKT  &caps_shft   &kp SPACE  &lt 2 RBKT  &kp MEH   &kp HYPER &kp RCTRL  &sl 4
-//             >;
-//         };
 
         NUM {
             label = "Numbers and symbols";
