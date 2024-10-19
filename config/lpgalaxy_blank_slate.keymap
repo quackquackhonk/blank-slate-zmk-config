@@ -103,8 +103,7 @@ I#define NAV 2
             label = "Base";
             bindings = <
 &kp TAB       &kp Q         &kp W         &kp F         &kp P         &kp B         &kp J         &kp L         &kp U         &kp Y         &kp SEMI      &bksp_del
-                        I
-&mt LCTRL ESC &kp A         &kp R         &kp S         &kp T         &kp G         &kp M         &kp N         &kp E         &kp I         &kp O         &kp SINGLE_QUOTE
+&kp ESC       &hm LSHFT A   &hm LGUI R    &hm LALT S    &hm LCTRL T   &kp G         &kp M         &hm LCTRL N   &hm LALT E    &hm LGUI I    &hm LSHFT O   &kp SINGLE_QUOTE
 &kp LPAR      &kp X         &kp C         &kp D         &kp V         &kp Z         &kp K         &kp H         &kp COMMA     &kp DOT       &kp SLASH     &kp RPAR
 &sl 3         &kp LCTRL     &kp LALT      &kp LGUI      &lt 1 LBKT    &kp LSHFT ENT &sp_und       &lt 2 RBKT    &kp MEH       &kp HYPER     &kp RCTRL     &sl 4
             >;
@@ -149,6 +148,7 @@ I#define NAV 2
 &trans        &trans        &trans        &trans        &trans        &trans       &trans         &trans       &trans         &trans        &trans        &trans
 &trans        &trans        &trans        &trans        &trans        &trans       &trans         &trans       &trans         &trans        &trans        &trans
             >;
+            I
         };
 // Example Layer
 //         EXAMPLE {
