@@ -5,15 +5,28 @@
  */
 
 #include <behaviors.dtsi>
+
 #include <dt-bindings/zmk/keys.h>
 
-#define NAV 2
+I#define NAV 2
 #define NUM 3
 #define EX  4
 #define MAC 5
 
 #define MEH LC(LS(LALT))
 #define HYPER LS(LC(LG(LALT)))
+
+#define ENT ENTER
+#define BANG EXCLAMATION
+#define AMPER AMPERSAND
+#define UNDSCORE UNDERSCORE
+
+#define PRNTSCRN PRINTSCREEN
+#define BKSLH BACKSLASH
+
+#define VOLDOWN C_VOLUME_DOWN
+#define VOLUP C_VOLUME_UP
+#define C_PLAY C_PLAY_PAUSE
 
 &sl {
     release-after-ms = <2000>;
@@ -48,25 +61,38 @@
         work_email: work_email {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
+            
             wait-ms = <10>;
-            bindings = <&none &kp S &kp A &kp H &kp A &kp N &kp A &kp DOT &kp T &kp A &kp N &kp K &kp A &kp L &kp A &kp AT &kp V &kp E &kp R &kp I &kp S &kp K &kp DOT &kp C &kp O &kp M>;
+            Ibindings = <&none &kp S &kp A &kp H &kp A &kp N &kp A &kp DOT &kp T &kp A &kp N &kp K &kp A &kp L &kp A &kp AT &kp V &kp E &kp R &kp I &kp S &kp K &kp DOT &kp C &kp O &kp M>;
             label = "WORK_EMAIL";
         };
     };
-    // Shift + Backspace for Delete (mod-morph)
     behaviors {
+        // Shift + Backspace for Delete (mod-morph)
         bksp_del: bksp_del {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&kp BACKSPACE>, <&kp DELETE>;
             mods = <(MOD_LSFT)>;
         };
+        // Shift + Space = Underscore
         sp_und: space_underscore {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&kp SPACE>, <&kp UNDERSCORE>;
             mods = <(MOD_LSFT)>;
             keep-mods = <(MOD_LSFT)>;
+        };
+
+        // homerow mods
+        hm: homerow_mods {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            tapping-term-ms = <150>;
+            quick-tap-ms = <0>;
+            flavor = "tap-preferred";
+            bindings = <&kp>, <&kp>;
+                    
         };
     };
 
@@ -76,49 +102,63 @@
         base_layer {
             label = "Base";
             bindings = <
-&key_repeat     &kp Q       &kp W     &kp F     &kp P       &kp B       &kp J      &kp L       &kp U     &kp Y     &kp SEMI   &bksp_del
-&mt LCTRL ESC   &kp A       &kp R     &kp S     &kp T       &kp G       &kp M      &kp N       &kp E     &kp I     &kp O      &kp SINGLE_QUOTE
-&kp TAB         &kp X       &kp C     &kp D     &kp V       &kp Z       &kp K      &kp H       &kp COMMA &kp DOT   &kp SLASH  &kp ENTER
-&sl 3           &kp LCTRL   &kp LALT  &kp LGUI  &lt 1 LBKT  &kp LSHFT   &sp_und    &lt 2 RBKT  &kp MEH   &kp HYPER &kp RCTRL  &sl 4
+&kp TAB       &kp Q         &kp W         &kp F         &kp P         &kp B         &kp J         &kp L         &kp U         &kp Y         &kp SEMI      &bksp_del
+                        I
+&mt LCTRL ESC &kp A         &kp R         &kp S         &kp T         &kp G         &kp M         &kp N         &kp E         &kp I         &kp O         &kp SINGLE_QUOTE
+&kp LPAR      &kp X         &kp C         &kp D         &kp V         &kp Z         &kp K         &kp H         &kp COMMA     &kp DOT       &kp SLASH     &kp RPAR
+&sl 3         &kp LCTRL     &kp LALT      &kp LGUI      &lt 1 LBKT    &kp LSHFT ENT &sp_und       &lt 2 RBKT    &kp MEH       &kp HYPER     &kp RCTRL     &sl 4
             >;
         };
+        
 
         NUM {
+            I
             label = "Numbers and symbols";
             bindings = <
-&kp F24    &kp EXCLAMATION  &kp AT     &kp HASH       &kp DOLLAR      &kp LBKT  &kp RBKT  &kp N1  &kp N2  &kp N3  &kp EQUAL     &trans
-&kp TILDE  &kp PERCENT      &kp CARET  &kp AMPERSAND  &kp UNDERSCORE  &kp LPAR  &kp RPAR  &kp N4  &kp N5  &kp N6  &kp ASTERISK  &kp FSLH
-&kp GRAVE  &trans           &trans     &kp PIPE       &kp BSLH        &kp LBRC  &kp RBRC  &kp N7  &kp N8  &kp N9  &kp MINUS     &kp PLUS
-&trans     &trans           &trans     &trans         &trans          &trans    &trans    &kp N0  &trans  &trans  &trans        &trans
+                        I
+&kp GRAVE     &kp BANG      &kp AT        &kp HASH      &kp DOLLAR    &kp PERCENT   &kp CARET     &kp AMPER     &kp STAR      &kp MINUS     &kp PLUS      &kp BSLH
+&kp TILDE     &hm LSHFT N1  &hm LGUI N2   &hm LALT N3   &hm LCTRL N4  &kp N5        &kp N6        &hm LCTRL N7  &hm LALT N8   &hm LGUI N9   &hm LSHFT N0  &kp EQUAL
+&kp F1        &kp F2        &kp F3        &kp F4        &kp F5        &kp F6        &kp F7        &kp F8        &kp F9        &kp F10       &kp F11       &kp F12 
+&trans        &trans        &trans        &trans        &trans        &trans        &trans        &kp N0        &trans        &trans        &trans        &trans
             >;
         };
 
         NAV {
             label = "navigation";
             bindings = <
-&kp CAPS &kp F1  &kp F2   &kp F3   &kp F4    &kp PRINTSCREEN  &kp HOME      &kp PG_DN     &kp PG_UP     &kp END       &trans             &trans
-&trans   &kp F5  &kp F6   &kp F7   &kp F8    &trans           &kp LEFT      &kp DOWN      &kp UP        &kp RIGHT     &kp LG(BACKSLASH)  &trans
-&trans   &kp F9  &kp F10  &kp F11  &kp F12   &trans           &kp LG(LBKT)  &kp LA(LBKT)  &kp LA(RBKT)  &kp LG(RBKT)  &trans             &trans
-&trans   &trans  &trans   &trans   &trans    &trans           &trans        &trans        &trans        &trans        &trans             &trans
+&kp CAPS      &trans        &trans        &trans        &trans        &kp PRNTSCRN  &kp HOME      &kp PG_DN     &kp PG_UP     &kp END       &trans        &trans
+&trans        &kp LG(LBKT)  &kp LA(LBKT)  &kp LA(RKBT)  &kp LG(RBKT)  &trans        &kp LEFT      &kp DOWN      &kp UP        &kp RIGHT     &trans        &trans
+&trans        &trans        &trans        &trans        &trans        &trans        &trans        &trans        &trans        &trans        &trans        &trans        
+&trans        &trans        &trans        &trans        &trans        &trans        &trans        &trans        &trans        &trans        &trans        &trans
             >;
         };
 
         EXTRA {
             bindings = <
-&trans  &kp F13  &kp F14  &kp F15  &kp F16  &trans  &trans      &kp C_PLAY_PAUSE   &trans           &trans      &trans  &trans
-&trans  &kp F17  &kp F18  &kp F19  &kp F20  &trans  &kp C_PREV  &kp C_VOLUME_DOWN  &kp C_VOLUME_UP  &kp C_NEXT  &trans  &trans
-&trans  &kp F21  &kp F22  &kp F23  &trans   &trans  &trans      &kp C_MUTE         &trans           &trans      &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans      &trans             &trans           &trans      &trans  &trans
+&trans        &kp F13       &kp F14       &kp F15       &kp F16       &trans        &trans        &kp C_PLAY    &trans        &trans       &trans         &trans
+&trans        &kp F17       &kp F18       &kp F19       &kp F20       &trans        &kp C_PREV    &kp VOLDOWN   &kp VOLUP     &kp C_NEXT   &trans         &trans
+&trans        &kp F21       &kp F22       &kp F23       &trans        &trans        &trans        &kp C_MUTE    &trans        &trans       &trans         &trans
+&trans        &trans        &trans        &trans        &trans        &trans        &trans        &trans        &trans        &trans       &trans         &trans
             >;
         };
 
         MACROS {
             bindings = <
-&trans  &trans  &work_email  &trans  &trans  &trans  &trans     &trans  &trans    &trans  &trans  &trans
-&trans  &trans  &trans       &trans  &trans  &trans  &i_github  &trans  &i_email  &trans  &trans  &trans
-&trans  &trans  &trans       &trans  &trans  &trans  &trans     &trans  &trans    &trans  &trans  &trans
-&trans  &trans  &trans       &trans  &trans  &trans  &trans     &trans  &trans    &trans  &trans  &trans
+&trans        &trans        &work_email   &trans        &trans        &trans       &trans         &trans       &trans         &trans        &trans        &trans
+&trans        &trans        &trans        &trans        &trans        &trans       &i_github      &trans       &i_email       &trans        &trans        &trans
+&trans        &trans        &trans        &trans        &trans        &trans       &trans         &trans       &trans         &trans        &trans        &trans
+&trans        &trans        &trans        &trans        &trans        &trans       &trans         &trans       &trans         &trans        &trans        &trans
             >;
         };
+// Example Layer
+//         EXAMPLE {
+//             label = "example"
+//             bindings = <
+// &trans        &trans        &trans        &trans        &trans        &trans       &trans         &trans       &trans         &trans        &trans        &trans
+// &trans        &trans        &trans        &trans        &trans        &trans       &trans         &trans       &trans         &trans        &trans        &trans
+// &trans        &trans        &trans        &trans        &trans        &trans       &trans         &trans       &trans         &trans        &trans        &trans
+// &trans        &trans        &trans        &trans        &trans        &trans       &trans         &trans       &trans         &trans        &trans        &trans
+//             >;
+//         };
     };
 };
