@@ -8,7 +8,7 @@
 
 #include <dt-bindings/zmk/keys.h>
 
-I#define NAV 2
+#define NAV 2
 #define NUM 3
 #define EX  4
 #define MAC 5
