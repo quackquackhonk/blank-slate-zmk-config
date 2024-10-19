@@ -5,7 +5,6 @@
  */
 
 #include <behaviors.dtsi>
-
 #include <dt-bindings/zmk/keys.h>
 
 #define NAV 2
@@ -45,7 +44,6 @@
             #binding-cells = <0>;
             wait-ms = <10>;
             bindings = <&kp S &kp A &kp H &kp A &kp N &kp A &kp T &kp A &kp N &kp K &kp A &kp L &kp A &kp AT &kp G &kp M &kp A &kp I &kp L &kp DOT &kp C &kp O &kp M>;
-            label = "I_EMAIL";
         };
 
         i_github: i_github {
@@ -53,16 +51,6 @@
             #binding-cells = <0>;
             wait-ms = <10>;
             bindings = <&kp Q &kp U &kp A &kp C &kp K &kp Q &kp U &kp A &kp C &kp K &kp H &kp O &kp N &kp K>;
-            label = "I_GITHUB";
-        };
-
-        work_email: work_email {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            
-            wait-ms = <10>;
-            Ibindings = <&none &kp S &kp A &kp H &kp A &kp N &kp A &kp DOT &kp T &kp A &kp N &kp K &kp A &kp L &kp A &kp AT &kp V &kp E &kp R &kp I &kp S &kp K &kp DOT &kp C &kp O &kp M>;
-            label = "WORK_EMAIL";
         };
     };
     behaviors {
@@ -98,7 +86,6 @@
         compatible = "zmk,keymap";
 
         base_layer {
-            label = "Base";
             bindings = <
 &kp TAB       &kp Q         &kp W         &kp F         &kp P         &kp B         &kp J         &kp L         &kp U         &kp Y         &kp SEMI      &bksp_del
 &kp ESC       &hm LSHFT A   &hm LGUI R    &hm LALT S    &hm LCTRL T   &kp G         &kp M         &hm LCTRL N   &hm LALT E    &hm LGUI I    &hm LSHFT O   &kp SINGLE_QUOTE
@@ -109,10 +96,7 @@
         
 
         NUM {
-            I
-            label = "Numbers and symbols";
             bindings = <
-                        I
 &kp GRAVE     &kp EXCL      &kp AT        &kp HASH      &kp DOLLAR    &kp PERCENT   &kp CARET     &kp AMPER     &kp STAR      &kp MINUS     &kp PLUS      &kp BSLH
 &kp TILDE     &hm LSHFT N1  &hm LGUI N2   &hm LALT N3   &hm LCTRL N4  &kp N5        &kp N6        &hm LCTRL N7  &hm LALT N8   &hm LGUI N9   &hm LSHFT N0  &kp EQUAL
 &kp F1        &kp F2        &kp F3        &kp F4        &kp F5        &kp F6        &kp F7        &kp F8        &kp F9        &kp F10       &kp F11       &kp F12 
@@ -121,10 +105,10 @@
         };
 
         NAV {
-            label = "navigation";
             bindings = <
 &kp CAPS      &trans        &trans        &trans        &trans        &kp PRNTSCRN  &kp HOME      &kp PG_DN     &kp PG_UP     &kp END       &trans        &trans
-&trans        &kp LG(LBKT)  &kp LA(LBKT)  &kp LA(RKBT)  &kp LG(RBKT)  &trans        &kp LEFT      &kp DOWN      &kp UP        &kp RIGHT     &trans        &trans
+//&trans        &kp LG(LBKT)  &kp LA(LBKT)  &kp LA(RKBT)  &kp LG(RBKT)  &trans        &kp LEFT      &kp DOWN      &kp UP        &kp RIGHT     &trans        &trans
+&trans        &trans        &trans        &trans        &trans        &trans        &trans        &trans        &trans        &trans        &trans        &trans        
 &trans        &trans        &trans        &trans        &trans        &trans        &trans        &trans        &trans        &trans        &trans        &trans        
 &trans        &trans        &trans        &trans        &trans        &trans        &trans        &trans        &trans        &trans        &trans        &trans
             >;
@@ -141,16 +125,17 @@
 
         MACROS {
             bindings = <
-&trans        &trans        &work_email   &trans        &trans        &trans       &trans         &trans       &trans         &trans        &trans        &trans
+&trans        &trans        &trans        &trans        &trans        &trans       &trans         &trans       &trans         &trans        &trans        &trans
 &trans        &trans        &trans        &trans        &trans        &trans       &i_github      &trans       &i_email       &trans        &trans        &trans
 &trans        &trans        &trans        &trans        &trans        &trans       &trans         &trans       &trans         &trans        &trans        &trans
 &trans        &trans        &trans        &trans        &trans        &trans       &trans         &trans       &trans         &trans        &trans        &trans
             >;
-            I
         };
+    };
+};
+
 // Example Layer
 //         EXAMPLE {
-//             label = "example"
 //             bindings = <
 // &trans        &trans        &trans        &trans        &trans        &trans       &trans         &trans       &trans         &trans        &trans        &trans
 // &trans        &trans        &trans        &trans        &trans        &trans       &trans         &trans       &trans         &trans        &trans        &trans
@@ -158,5 +143,3 @@
 // &trans        &trans        &trans        &trans        &trans        &trans       &trans         &trans       &trans         &trans        &trans        &trans
 //             >;
 //         };
-    };
-};
