@@ -7,11 +7,6 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 
-#define NAV 2
-#define NUM 3
-#define EX  4
-#define MAC 5
-
 #define MEH LC(LS(LALT))
 #define HYPER LS(LC(LG(LALT)))
 
@@ -29,7 +24,7 @@
 
 / {
     macros {
-        i_email: i_email {
+        i_email: insert_email {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <10>;
@@ -37,20 +32,12 @@
             label = "I_EMAIL";
         };
 
-        i_github: i_github {
+        i_qqh: insert_quackquackhonk {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <10>;
             bindings = <&kp Q &kp U &kp A &kp C &kp K &kp Q &kp U &kp A &kp C &kp K &kp H &kp O &kp N &kp K>;
             label = "I_GITHUB";
-        };
-
-        work_email: work_email {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <10>;
-            bindings = <&none &kp S &kp A &kp H &kp A &kp N &kp A &kp DOT &kp T &kp A &kp N &kp K &kp A &kp L &kp A &kp AT &kp V &kp E &kp R &kp I &kp S &kp K &kp DOT &kp C &kp O &kp M>;
-            label = "WORK_EMAIL";
         };
     };
     // Shift + Backspace for Delete (mod-morph)
@@ -103,6 +90,7 @@
             >;
         };
 
+        // Media Layer
         EXTRA {
             bindings = <
 &trans  &kp F13  &kp F14  &kp F15  &kp F16  &trans  &trans      &kp C_PLAY_PAUSE   &trans           &trans      &trans  &trans
@@ -112,12 +100,13 @@
             >;
         };
 
+        // Macro Layer
         MACROS {
             bindings = <
-&trans  &trans  &work_email  &trans  &trans  &trans  &trans     &trans  &trans    &trans  &trans  &trans
-&trans  &trans  &trans       &trans  &trans  &trans  &i_github  &trans  &i_email  &trans  &trans  &trans
-&trans  &trans  &trans       &trans  &trans  &trans  &trans     &trans  &trans    &trans  &trans  &trans
-&trans  &trans  &trans       &trans  &trans  &trans  &trans     &trans  &trans    &trans  &trans  &trans
+&trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans
+&trans    &trans    &trans    &trans    &trans    &trans    &trans    &i_qqh    &i_email  &trans    &trans    &trans
+&trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans
+&trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans
             >;
         };
     };
