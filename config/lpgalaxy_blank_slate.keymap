@@ -7,23 +7,12 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 
-#define NAV 2
-#define NUM 3
-#define EX  4
-#define MAC 5
-
 #define MEH LC(LS(LALT))
 #define HYPER LS(LC(LG(LALT)))
 
-#define ENT ENTER
-#define AMPER AMPERSAND
-#define UNDSCORE UNDERSCORE
+#define CTRL LEFT_CONTROL
+#define SHFT LEFT_SHIFT
 
-#define PRNTSCRN PRINTSCREEN
-#define BKSLH BACKSLASH
-
-#define VOLDOWN C_VOLUME_DOWN
-#define VOLUP C_VOLUME_UP
 
 &sl {
     release-after-ms = <2000>;
@@ -39,18 +28,19 @@
 
 / {
     macros {
-        i_email: i_email {
+        i_email: insert_email {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <10>;
             bindings = <&kp S &kp A &kp H &kp A &kp N &kp A &kp T &kp A &kp N &kp K &kp A &kp L &kp A &kp AT &kp G &kp M &kp A &kp I &kp L &kp DOT &kp C &kp O &kp M>;
         };
 
-        i_github: i_github {
+        i_qqh: insert_quackquackhonk {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <10>;
             bindings = <&kp Q &kp U &kp A &kp C &kp K &kp Q &kp U &kp A &kp C &kp K &kp H &kp O &kp N &kp K>;
+            label = "I_GITHUB";
         };
     };
     behaviors {
@@ -69,16 +59,15 @@
             mods = <(MOD_LSFT)>;
             keep-mods = <(MOD_LSFT)>;
         };
-
         // homerow mods
         hm: homerow_mods {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-            tapping-term-ms = <150>;
+            tapping-term-ms = <200>;
             quick-tap-ms = <0>;
-            flavor = "tap-preferred";
+            require-prior-idle-ms = <125>;
+            flavor = "balanced";
             bindings = <&kp>, <&kp>;
-                    
         };
     };
 
@@ -87,33 +76,33 @@
 
         base_layer {
             bindings = <
-&kp TAB       &kp Q         &kp W         &kp F         &kp P         &kp B         &kp J         &kp L         &kp U         &kp Y         &kp SEMI      &bksp_del
-&kp ESC       &hm LSHFT A   &hm LGUI R    &hm LALT S    &hm LCTRL T   &kp G         &kp M         &hm LCTRL N   &hm LALT E    &hm LGUI I    &hm LSHFT O   &kp SINGLE_QUOTE
-&kp LPAR      &kp X         &kp C         &kp D         &kp V         &kp Z         &kp K         &kp H         &kp COMMA     &kp DOT       &kp SLASH     &kp RPAR
-&sl 3         &kp LCTRL     &kp LALT      &kp LGUI      &lt 1 LBKT    &kp LSHFT ENT &sp_und       &lt 2 RBKT    &kp MEH       &kp HYPER     &kp RCTRL     &sl 4
+&kp TAB        &kp Q       &kp W      &kp F      &kp P       &kp B       &kp J      &kp L       &kp U      &kp Y      &kp SEMI   &bksp_del
+&kp ESC        &kp A       &kp R      &hm LALT S &hm CTRL T  &kp G       &kp M      &hm CTRL N  &hm LALT E &kp I      &kp O      &kp SINGLE_QUOTE
+&kp LPAR       &kp X       &kp C      &kp D      &kp V       &kp Z       &kp K      &kp H       &kp COMMA  &kp DOT    &kp SLASH  &kp RPAR 
+&sl 3          &kp LCTRL   &kp LALT   &kp LGUI   &lt 1 LBKT  &mt SHFT ENTER &sp_und    &lt 2 RBKT  &kp MEH    &kp HYPER  &kp RCTRL  &sl 4
             >;
         };
         
 
         NUM {
             bindings = <
-&kp GRAVE     &kp EXCL      &kp AT        &kp HASH      &kp DOLLAR    &kp PERCENT   &kp CARET     &kp AMPER     &kp STAR      &kp MINUS     &kp PLUS      &kp BSLH
-&kp TILDE     &hm LSHFT N1  &hm LGUI N2   &hm LALT N3   &hm LCTRL N4  &kp N5        &kp N6        &hm LCTRL N7  &hm LALT N8   &hm LGUI N9   &hm LSHFT N0  &kp EQUAL
+&kp GRAVE     &kp EXCL      &kp AT        &kp HASH      &kp DOLLAR    &kp PERCENT   &kp CARET     &kp AMPS      &kp STAR      &kp MINUS     &kp PLUS      &kp BSLH
+&kp TILDE     &kp N1        &kp N2        &hm LALT N3   &hm CTRL N4   &kp N5        &kp N6        &hm CTRL N7   &hm LALT N8   &kp N9        &kp N0        &kp EQUAL
 &kp F1        &kp F2        &kp F3        &kp F4        &kp F5        &kp F6        &kp F7        &kp F8        &kp F9        &kp F10       &kp F11       &kp F12 
-&trans        &trans        &trans        &trans        &trans        &trans        &trans        &kp N0        &trans        &trans        &trans        &trans
+&trans        &trans        &trans        &trans        &trans        &trans        &kp LGUI      &trans        &trans        &trans        &trans        &trans
             >;
         };
 
         NAV {
             bindings = <
-&kp CAPS      &trans        &trans        &trans        &trans        &kp PRNTSCRN  &kp HOME      &kp PG_DN     &kp PG_UP     &kp END       &trans        &trans
-//&trans        &kp LG(LBKT)  &kp LA(LBKT)  &kp LA(RKBT)  &kp LG(RBKT)  &trans        &kp LEFT      &kp DOWN      &kp UP        &kp RIGHT     &trans        &trans
-&trans        &trans        &trans        &trans        &trans        &trans        &trans        &trans        &trans        &trans        &trans        &trans        
-&trans        &trans        &trans        &trans        &trans        &trans        &trans        &trans        &trans        &trans        &trans        &trans        
-&trans        &trans        &trans        &trans        &trans        &trans        &trans        &trans        &trans        &trans        &trans        &trans
+&kp CAPS &trans  &trans   &trans   &trans    &kp PRINTSCREEN  &kp HOME      &kp PG_DN     &kp PG_UP     &kp END       &trans             &trans
+&trans   &kp LG(LBKT) &kp LA(LBKT)   &kp LA(RBKT)   &kp LG(RBKT)    &trans           &kp LEFT      &kp DOWN      &kp UP        &kp RIGHT     &trans  &trans 
+&trans   &kp LSHFT &kp LGUI   &kp LALT    &kp LCTRL  &trans           &trans        &trans        &trans        &trans        &trans             &trans
+&trans   &trans  &trans   &trans   &trans    &trans           &trans        &trans        &trans        &trans        &trans             &trans
             >;
         };
 
+        // Media Layer
         EXTRA {
             bindings = <
 &trans        &kp F13       &kp F14       &kp F15       &kp F16       &trans        &trans        &kp C_PP      &trans        &trans       &trans         &trans
@@ -123,12 +112,13 @@
             >;
         };
 
+        // Macro Layer
         MACROS {
             bindings = <
-&trans        &trans        &trans        &trans        &trans        &trans       &trans         &trans       &trans         &trans        &trans        &trans
-&trans        &trans        &trans        &trans        &trans        &trans       &i_github      &trans       &i_email       &trans        &trans        &trans
-&trans        &trans        &trans        &trans        &trans        &trans       &trans         &trans       &trans         &trans        &trans        &trans
-&trans        &trans        &trans        &trans        &trans        &trans       &trans         &trans       &trans         &trans        &trans        &trans
+&trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans
+&trans    &trans    &trans    &trans    &trans    &trans    &trans    &i_qqh    &i_email  &trans    &trans    &trans
+&trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans
+&trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans
             >;
         };
     };
