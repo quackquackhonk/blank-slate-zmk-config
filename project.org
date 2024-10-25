@@ -1,0 +1,24 @@
+#+TITLE: Project Organization File for my ZMK Configuration
+
+* Configuration files
+
+** Justfile
+#+begin_src just :tangle justfile
+  # This is an example justfile
+  build:
+      west build -s zmk/app -b "lpgalaxy_blank_slate" -- -DZMK_CONFIG=/home/sahana/code/blank-slate-zmk-config/config
+      cp build/zephyr/zmk.uf2 .
+
+  test:
+      echo "TEST NOT CONFIGURED"
+#+end_src
+
+** Project Setup
+
+#+begin_src emacs-lisp :tangle .dir-locals.el
+  ((nil . ((compile-command . "just build"))))
+#+end_src
+
+* Links
+* Tasks
+* Questions

@@ -9,10 +9,17 @@
 
 #define MEH LC(LS(LALT))
 #define HYPER LS(LC(LG(LALT)))
+#define SHFT LSHFT
+#define CTRL LCTRL
 
-#define CTRL LEFT_CONTROL
-#define SHFT LEFT_SHIFT
+#define CART CARET
 
+#define L_BASE 0
+#define L_NUM 1
+#define L_FUNC 2
+#define L_NAV  3
+#define L_EXTS 4
+#define L_MACR 5
 
 &sl {
     release-after-ms = <2000>;
@@ -64,8 +71,8 @@
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             tapping-term-ms = <200>;
-            quick-tap-ms = <0>;
-            require-prior-idle-ms = <125>;
+            quick-tap-ms = <100>;
+            require-prior-idle-ms = <150>;
             flavor = "balanced";
             bindings = <&kp>, <&kp>;
         };
@@ -76,38 +83,47 @@
 
         base_layer {
             bindings = <
-&kp TAB        &kp Q       &kp W      &kp F      &kp P       &kp B       &kp J      &kp L       &kp U      &kp Y      &kp SEMI   &bksp_del
-&kp ESC        &kp A       &kp R      &hm LALT S &hm CTRL T  &kp G       &kp M      &hm CTRL N  &hm LALT E &kp I      &kp O      &kp SINGLE_QUOTE
-&kp LPAR       &kp X       &kp C      &kp D      &kp V       &kp Z       &kp K      &kp H       &kp COMMA  &kp DOT    &kp SLASH  &kp RPAR 
-&sl 3          &kp LCTRL   &kp LALT   &kp LGUI   &lt 1 LBKT  &mt SHFT ENTER &sp_und    &lt 2 RBKT  &kp MEH    &kp HYPER  &kp RCTRL  &sl 4
+&kp TAB       &kp Q         &kp W         &kp F         &kp P          &kp B          &kp J       &kp L          &kp U         &kp Y         &kp SEMI      &bksp_del
+&kp ESC       &kp A         &hm LGUI R    &hm LALT S    &hm CTRL T     &kp G          &kp M       &hm CTRL N     &hm LALT E    &hm LGUI I    &kp O         &kp SINGLE_QUOTE
+&kp LPAR      &kp X         &kp C         &kp D         &kp V          &kp Z          &kp K       &kp H          &kp COMMA     &kp DOT       &kp SLASH     &kp RPAR
+&sl L_EXTS    &kp LCTRL     &kp LALT      &kp LGUI      &lt L_NUM LBKT &mt SHFT ENTER &sp_und     &lt L_NAV RBKT &kp MEH       &kp HYPER     &kp RCTRL     &sl L_MACR
             >;
         };
-        
+
 
         NUM {
             bindings = <
-&kp GRAVE     &kp EXCL      &kp AT        &kp HASH      &kp DOLLAR    &kp PERCENT   &kp CARET     &kp AMPS      &kp STAR      &kp MINUS     &kp PLUS      &kp BSLH
-&kp TILDE     &kp N1        &kp N2        &hm LALT N3   &hm CTRL N4   &kp N5        &kp N6        &hm CTRL N7   &hm LALT N8   &kp N9        &kp N0        &kp EQUAL
-&kp F1        &kp F2        &kp F3        &kp F4        &kp F5        &kp F6        &kp F7        &kp F8        &kp F9        &kp F10       &kp F11       &kp F12 
-&trans        &trans        &trans        &trans        &trans        &trans        &kp LGUI      &trans        &trans        &trans        &trans        &trans
+&kp GRAVE     &kp EXCL      &kp AT        &kp HASH      &kp DOLLAR    &trans        &trans        &kp N1        &kp N2        &kp N3        &kp EQUAL     &trans
+&kp TILDE     &kp PRCNT     &hm LGUI CART &hm LALT AMPS &hm CTRL BSLH &kp PIPE      &kp MINUS     &hm CTRL N4   &hm LALT N5   &hm LGUI N6   &kp PLUS      &trans
+&trans        &trans        &trans        &trans        &trans        &trans        &trans        &kp N7        &kp N8        &kp N9        &kp STAR      &trans
+&trans        &trans        &trans        &trans        &trans        &trans        &trans        &kp N0        &trans        &trans        &trans        &trans
             >;
         };
 
         NAV {
             bindings = <
-&kp CAPS &trans  &trans   &trans   &trans    &kp PRINTSCREEN  &kp HOME      &kp PG_DN     &kp PG_UP     &kp END       &trans             &trans
-&trans   &kp LG(LBKT) &kp LA(LBKT)   &kp LA(RBKT)   &kp LG(RBKT)    &trans           &kp LEFT      &kp DOWN      &kp UP        &kp RIGHT     &trans  &trans 
-&trans   &kp LSHFT &kp LGUI   &kp LALT    &kp LCTRL  &trans           &trans        &trans        &trans        &trans        &trans             &trans
-&trans   &trans  &trans   &trans   &trans    &trans           &trans        &trans        &trans        &trans        &trans             &trans
+&trans        &trans        &trans        &trans        &trans        &trans       &kp HOME       &kp PG_DN    &kp PG_UP      &kp END       &trans        &trans
+&trans        &trans        &trans        &trans        &trans        &trans       &kp LEFT       &kp DOWN     &kp UP         &kp RIGHT     &kp LG(BSLH)  &trans
+&trans        &trans        &trans        &trans        &trans        &trans       &trans         &kp LG(LBKT) &kp LG(RBKT)   &trans        &trans        &trans
+&trans        &trans        &trans        &trans        &trans        &trans       &trans         &trans       &trans         &trans        &trans        &trans
+            >;
+        };
+
+        FUNCS {
+            bindings = <
+&kp F13       &kp F14       &kp F14       &kp F14       &kp F14       &kp F14       &kp F14       &kp F14       &kp F14       &kp F14       &kp F14       &kp F14
+&kp F1        &kp F2        &hm LGUI F3   &hm LALT F4   &hm CTRL F5   &kp F6        &kp F7        &hm CTRL F8   &hm LALT F9   &hm LGUI F10  &kp F11       &kp F12
+&trans        &trans        &trans        &trans        &trans        &trans        &trans        &trans        &trans        &trans        &trans        &trans
+&trans        &trans        &trans        &trans        &trans        &trans        &trans        &trans        &trans        &trans        &trans        &trans
             >;
         };
 
         // Media Layer
         EXTRA {
             bindings = <
-&trans        &kp F13       &kp F14       &kp F15       &kp F16       &trans        &trans        &kp C_PP      &trans        &trans       &trans         &trans
-&trans        &kp F17       &kp F18       &kp F19       &kp F20       &trans        &kp C_PREV    &kp VOLDOWN   &kp VOLUP     &kp C_NEXT   &trans         &trans
-&trans        &kp F21       &kp F22       &kp F23       &trans        &trans        &trans        &kp C_MUTE    &trans        &trans       &trans         &trans
+&trans        &trans        &trans        &trans        &trans        &trans        &trans        &kp C_PP      &trans        &trans       &trans         &trans
+&trans        &trans        &trans        &trans        &trans        &trans        &kp C_PREV    &kp C_VOL_DN  &kp C_VOL_UP  &kp C_NEXT   &trans         &trans
+&trans        &trans        &trans        &trans        &trans        &trans        &trans        &kp C_MUTE    &trans        &trans       &trans         &trans
 &trans        &trans        &trans        &trans        &trans        &trans        &trans        &trans        &trans        &trans       &trans         &trans
             >;
         };
