@@ -15,10 +15,10 @@
 #define CART CARET
 
 #define L_BASE 0
-#define L_NUM 1
-#define L_GAME 2
-#define L_FUNC 3
-#define L_NAV  4
+#define L_GAME 1
+#define L_NUM 2
+#define L_NAV 3
+#define L_FUNC  4
 #define L_EXTS 5
 #define L_MACR 6
 
@@ -114,7 +114,7 @@
 &trans        &trans        &trans        &trans        &trans        &trans       &kp HOME       &kp PG_DN    &kp PG_UP      &kp END       &trans        &trans
 &trans        &trans        &trans        &trans        &trans        &trans       &kp LEFT       &kp DOWN     &kp UP         &kp RIGHT     &kp LG(BSLH)  &trans
 &trans        &trans        &trans        &trans        &trans        &trans       &trans         &kp LG(LBKT) &kp LG(RBKT)   &trans        &trans        &trans
-&trans        &trans        &trans        &trans        &trans        &trans       &trans         &trans       &trans         &trans        &trans        &trans
+&trans        &trans        &trans        &trans        &lt L_FUNC    &trans       &trans         &trans       &trans         &trans        &trans        &trans
             >;
         };
 
@@ -149,7 +149,7 @@
     };
 };
 
-// Example Layer
+// Example layer
 //         EXAMPLE {
 //             bindings = <
 // &trans        &trans        &trans        &trans        &trans        &trans       &trans         &trans       &trans         &trans        &trans        &trans
