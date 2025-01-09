@@ -18,9 +18,8 @@
 #define L_GAME 1
 #define L_NUM 2
 #define L_NAV 3
-#define L_FUNC  4
-#define L_EXTS 5
-#define L_MACR 6
+#define L_EXTS 4
+#define L_MACR 5
 
 &sl {
     release-after-ms = <2000>;
@@ -111,19 +110,10 @@
 
         NAV {
             bindings = <
-&trans        &trans        &trans        &trans        &trans        &trans       &kp HOME       &kp PG_DN    &kp PG_UP      &kp END       &trans        &trans
-&trans        &trans        &trans        &trans        &trans        &trans       &kp LEFT       &kp DOWN     &kp UP         &kp RIGHT     &kp LG(BSLH)  &trans
-&trans        &trans        &trans        &trans        &trans        &trans       &trans         &kp LG(LBKT) &kp LG(RBKT)   &trans        &trans        &trans
-&trans        &trans        &trans        &trans        &lt L_FUNC    &trans       &trans         &trans       &trans         &trans        &trans        &trans
-            >;
-        };
-
-        FUNCS {
-            bindings = <
-&kp F13       &kp F14       &kp F14       &kp F14       &kp F14       &kp F14       &kp F14       &kp F14       &kp F14       &kp F14       &kp F14       &kp F14
-&kp F1        &kp F2        &hm LGUI F3   &hm LALT F4   &hm CTRL F5   &kp F6        &kp F7        &hm CTRL F8   &hm LALT F9   &hm LGUI F10  &kp F11       &kp F12
-&trans        &trans        &trans        &trans        &trans        &trans        &trans        &trans        &trans        &trans        &trans        &trans
-&trans        &trans        &trans        &trans        &trans        &trans        &trans        &trans        &trans        &trans        &trans        &trans
+&trans        &kp F1        &kp F2        &kp F3        &kp F4        &trans       &kp HOME       &kp PG_DN    &kp PG_UP      &kp END       &trans        &trans
+&trans        &kp F5        &kp F6        &kp F7        &kp F8        &trans       &kp LEFT       &hm CTRL DOWN &hm LALT UP   &hm LGUI RIGHT &kp LG(BSLH)  &trans
+&trans        &kp F9        &kp F10       &kp F11       &kp F12       &trans       &trans         &kp LG(LBKT) &kp LG(RBKT)   &trans        &trans        &trans
+&trans        &trans        &trans        &trans        &trans        &trans       &trans         &trans       &trans         &trans        &trans        &trans
             >;
         };
 
