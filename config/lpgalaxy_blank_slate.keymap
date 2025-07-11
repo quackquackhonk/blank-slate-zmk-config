@@ -87,19 +87,19 @@
 
         base_layer {
             bindings = <
-&kp TAB       &kp Q         &kp W         &kp E         &kp R          &kp T          &kp Y       &kp U          &kp I         &kp O         &kp P         &bksp_del
-&lt L_EDT ESC &kp A         &hm LGUI S    &hm LALT D    &hm CTRL F     &kp G          &kp H       &hm CTRL J     &hm LALT K    &hm LGUI L    &kp SEMI      &kp SINGLE_QUOTE
-&mt SHFT LPAR &kp Z         &kp X         &kp C         &kp V          &kp B          &kp N       &kp           &kp COMMA     &kp DOT       &kp SLASH     &mt SHFT RPAR
-&sl L_EXTS    &kp LCTRL     &kp LALT      &kp LBRC      &lt L_NUM LBKT &mt SHFT ENTER &sp_und     &lt L_NAV RBKT &kp RBRC      &kp MEH       &kp HYPER     &mo L_MACR
+&kp TAB        &kp Q         &kp W         &kp E         &kp R          &kp T          &kp Y       &kp U          &kp I         &kp O         &kp P         &bksp_del
+&lt L_EDIT ESC &kp A         &hm LGUI S    &hm LALT D    &hm CTRL F     &kp G          &kp H       &hm CTRL J     &hm LALT K    &hm LGUI L    &kp SEMI      &kp SINGLE_QUOTE
+&mt SHFT LPAR  &kp Z         &kp X         &kp C         &kp V          &kp B          &kp N       &kp M          &kp COMMA     &kp DOT       &kp SLASH     &mt SHFT RPAR
+&sl L_EXTS     &kp LCTRL     &kp LALT      &kp LBRC      &lt L_NUM LBKT &mt SHFT ENTER &sp_und     &lt L_NAV RBKT &kp RBRC      &kp MEH       &kp HYPER     &mo L_MACR
             >;
         };
 
         colemak {
             bindings = <
-&kp TAB       &kp Q         &kp W         &kp F         &kp P          &kp B          &kp J       &kp L          &kp U         &kp Y         &kp SEMI      &bksp_del
-&lt L_EDT ESC &kp A         &hm LGUI R    &hm LALT S    &hm CTRL T     &kp G          &kp M       &hm CTRL N     &hm LALT E    &hm LGUI I    &kp O         &kp SINGLE_QUOTE
-&mt SHFT LPAR &kp X         &kp C         &kp D         &kp V          &kp Z          &kp K       &kp H          &kp COMMA     &kp DOT       &kp SLASH     &mt SHFT RPAR
-&sl L_EXTS    &kp LCTRL     &kp LALT      &kp LBRC      &lt L_NUM LBKT &mt SHFT ENTER &sp_und     &lt L_NAV RBKT &kp RBRC      &kp MEH       &kp HYPER     &mo L_MACR
+&kp TAB        &kp Q         &kp W         &kp F         &kp P          &kp B          &kp J       &kp L          &kp U         &kp Y         &kp SEMI      &bksp_del
+&lt L_EDIT ESC &kp A         &hm LGUI R    &hm LALT S    &hm CTRL T     &kp G          &kp M       &hm CTRL N     &hm LALT E    &hm LGUI I    &kp O         &kp SINGLE_QUOTE
+&mt SHFT LPAR  &kp X         &kp C         &kp D         &kp V          &kp Z          &kp K       &kp H          &kp COMMA     &kp DOT       &kp SLASH     &mt SHFT RPAR
+&sl L_EXTS     &kp LCTRL     &kp LALT      &kp LBRC      &lt L_NUM LBKT &mt SHFT ENTER &sp_und     &lt L_NAV RBKT &kp RBRC      &kp MEH       &kp HYPER     &mo L_MACR
             >;
         };
 
@@ -145,7 +145,7 @@
             bindings = <
 &trans    &tog L_GAME    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans
 &trans    &trans    &trans    &trans    &trans    &trans    &trans    &i_qqh    &i_email  &trans    &trans    &trans
-&trans    &trans    &tog L_GAME   &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans
+&trans    &trans    &tog L_CLMK   &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans
 &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans
             >;
         };
